@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>甄选家</title>
+	<meta name="viewport" content="width=device-width,height=device-height" />
+	<link rel="stylesheet" href="lib/jquery-ui.min.css" />
+	<script src="js/jquery-3.1.0.min.js"></script>
+	<script src="lib/jquery-ui.js"></script>
+	<!-- <script src="jQuery%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6Scrollify%E6%BC%94%E7%A4%BA-%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1_dowebok_files/jquery-1.js"></script>
+	<script src="jQuery%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6Scrollify%E6%BC%94%E7%A4%BA-%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1_dowebok_files/jquery.js"></script>
+	<script src="jQuery%E5%85%A8%E5%B1%8F%E6%BB%9A%E5%8A%A8%E6%8F%92%E4%BB%B6Scrollify%E6%BC%94%E7%A4%BA-%E9%9A%90%E8%97%8F%E6%BB%9A%E5%8A%A8%E6%9D%A1_dowebok_files/jquery_002.js"></script>
+ -->
+	<style type="text/css">
+	*{
+		margin:0px;
+		padding: 0px;
+	}
+
+	body{
+				overflow: scroll;
+				overflow: hidden;
+				
+			}
+	#all{
+			position: absolute;
+				top: 0;
+				left: 0;
+	}
+	header{
+		overflow:hidden;
+		background-color: #333333;
+		color: #CCCCCC;
+		height: 38px;
+		line-height: 38px;
+		font-size:13px;
+
+	}
+	header span{
+		float: left;
+		margin-left: 10%;
+	}
+	header ul{
+		float: right;
+		margin-right: 5%
+	}
+	header li{
+		list-style: none;
+		float: left;
+
+	}
+
+	nav{
+	overflow: hidden;
+	 margin-right: auto;
+    margin-left: auto;
+
+	}
+	.nav2{
+		width: 70%;
+		 margin-right: auto;
+    margin-left: auto;
+	}
+	nav .nav2 #logo{
+		width: 100%;
+		height: 130px;
+		text-align: center;
+		background-color: #FFF;
+
+	}
+	header ul li a{
+		text-decoration:none;
+		color:#ccc;
+	}
+	header ul li a:hover{
+		color:#FFF;
+	}
+
+	header>ul>li:last-child>div{
+		position: absolute;
+			left: 90.5%;top:40px;
+			visibility: hidden;
+			opacity: 0;
+		transition: all .4s;
+		
+	}
+	header>ul>li:last-child:hover>div{
+		opacity: 1;
+		transition: all .6s;
+		visibility: visible;
+		
+	}
+	
+	nav .nav2 #dh{
+      clear: both;
+		position: relative;
+		height: 65px;
+		background-color: #FFFFFF;
+		width: 100%;
+		z-index: 99
+	}
+	
+	nav .nav2 #dh ul{
+		width: 100%;
+		display: flex;
+			
+	}
+	nav>.nav2>#dh>ul>li{
+		flex: 1;
+		list-style-type:none;
+		float:left;
+		font-size:13px;
+		line-height: 65px;
+		font-weight:bold;
+		color:#000;
+		text-align: center;
+	
+	}
+	nav .nav2 #dh ul li a{
+		text-decoration:none;
+		color:#000;
+	}
+	nav .nav2 #dh ul>li:hover>a{
+		color: #B19F7B;
+		border-bottom: 5px solid #B19F7B;
+	}
+	nav .nav2 #dh.fixed{
+		position:fixed;
+		left:0;
+		top:0;
+		width: 100%;					
+		z-index:1 4;
+		transition: all .4s;
+	}
+	nav>.nav2>#dh.fixed>ul{
+		margin: 0 auto;
+		width: 70%;	
+	}
+	
+	
+	section #s{
+		position: relative;
+		width: 140%;
+		height:759px;
+		text-align: center;
+		margin-left: -15.3%;
+		
+		
+	}
+	#img{
+			position: absolute;
+		width:72.5%;
+		height:780px;
+		left:10%;
+		right: 0;
+	}
+	#img2{
+		position: absolute;
+		/*z-index:3;*/
+		opacity: 0;
+		top: -40px;
+		left:39%;
+		visibility: hidden;
+		
+	}
+		@keyframes move{
+				0{
+					margin-top: 1px;
+				}
+				50%{
+					margin-top: 8px;
+				}
+				10%{
+					margin-top: 20px;
+				}
+			}
+	#img3{
+		position: absolute;
+			left:46%;
+			top:660px;
+			animation: move 1s normal infinite;
+	}
+	
+	nav>.nav2>#dh>ul>li>ul{
+		position: absolute;
+		top: 65px;
+		left: 10%;
+		z-index: 2;
+		background-color: #fff;
+		width: 80%;
+		margin-left:auto;
+		margin-right: auto;
+		text-align: center;
+		transition:all .2s;
+		opacity: 0;
+		visibility: hidden;
+	}
+	nav>.nav2>#dh>ul>li>ul.fixed2{
+		right:5%;
+			width: 65%;
+	}
+	nav>.nav2>#dh>ul>li>ul>li{
+			flex: 1;
+		list-style-type:none;
+		float:left;
+		font-size:13px;
+		line-height:20px;
+		font-weight:bold;
+		color:#000;
+		text-align: center;
+	
+		height: 70px;
+		
+
+	}
+	nav>.nav2>#dh>ul>li:hover>ul{
+		visibility: visible;
+		transition:all .4s;
+		opacity: 1;
+	}
+	nav>.nav2>#dh>ul:hover+#bg5{
+		visibility: visible;
+		transition:all .2s;
+		opacity: 1;
+	}
+	nav>.nav2>#dh>#bg5{
+		background-color: #fff;
+		height: 80px;
+		width: 143.3%;
+		position: absolute;
+		left: -22%;
+		z-index: 1;
+		visibility: hidden;
+		transition:all .4s;
+		opacity: 0;
+		margin-left: auto;
+		margin-right: auto;
+	}
+	section #x{
+		height: 970px;
+		background-color: #000;
+		width: 100%;
+		overflow: hidden;
+		background-image: url(img/xbg4.jpg);
+		background-position:right center;
+		background-repeat: no-repeat;
+			position: relative;
+	}
+	.sub{
+		float: left;
+		height: 100%;
+		width: 33.33333%;
+	
+		overflow: hidden;
+		
+	}
+	
+	.part1{
+		background-image: url(img/xbg1.jpg);
+		background-position: left center;
+		transition: all .4s;
+	}
+		.part2{
+		background-image:url(img/xbg2.jpg);
+		background-position: center;
+		transition: all .4s;
+	}
+		.part3{
+		background-image:url(img/xbg3.jpg);
+		background-position: center;
+		transition: all .4s;
+
+	}
+  #x:hover .sub{
+  	width: 20%;
+  }
+
+  #x> .sub:hover{
+   	width: 60%;
+   	transition: all .4s;
+   }
+     #x:hover .sub .mb{
+  	width: 20%;
+  	transition: width.4s;
+  }
+     #x> .sub:hover .mb{
+   opacity: 0.2;
+   	width: 60%;
+
+   	transition: width .4s;
+   }
+	 #x> .sub:hover>.cnt>.font-normal{
+  top: 20%;
+	
+   	transition:all 2s;
+   }
+
+
+
+ .mb{
+ 	position: absolute;
+ 	background: #000;
+ 	opacity: 0.5;
+ 	z-index: 1;
+ 		width: 33.33333%;
+ 	height: 100%;
+
+ 	 	transition: width .4s;
+
+ }
+.sub>.cnt{
+	position:relative;
+ 		z-index: 5;
+	height: 100%;
+	width: 100%;
+    font-weight: 300;
+    margin: auto;
+    text-align: center;
+    text-align: center;
+
+}
+     
+  .sub>.cnt>.font-normal{
+  	position: absolute;
+  		height: 130px;
+       width: 250px;
+     left:0;
+    right:0;
+    top:50%;
+    bottom: 0;
+  	margin-right: auto!important;
+  	margin-left: auto!important;
+	color: #fff;
+		transition: all 2s;
+		
+   }
+
+   .name{
+    width:100%;
+   	font-size: 35px;
+   	padding-top: 14px;
+	
+   }
+    .sub>.cnt>.font-normal .bgts{
+    	position: absolute;
+    	background-image: url(img/gbzj.png);
+    	width: 100%;
+    	height:50px;
+    	top: -15px;
+    	background-repeat: no-repeat;
+    }
+   .sub>.cnt>.font-normal .line{
+   	margin: 30px 90px;
+   width: 50px;
+height: 2px;
+    background: #fff;
+   }
+   .desc{
+   	 width: 100%;
+   }
+   .mh{
+   		background-image: url(img/冒号.png);
+   		
+   }
+   .sub>.cnt>.font-hover{
+   	position: absolute;
+   	height: 230px;
+     width: 100%;
+     left:0;
+    right:0;
+    top:70%;
+    bottom: 0;
+
+  	margin-right: auto!important;
+  	margin-left: auto!important;
+	color: #fff;
+		
+		opacity: 0;
+   }
+    #x> .sub:hover>.cnt>.font-hover{
+    	animation: fadeInUp 4s ease-in-out 1s 4;
+    	opacity: 1;
+    	transition: all 1.5s;
+    	top:41%;
+    	transition-delay:1s;
+    }
+   .bgts1{
+	display: inline-block;
+   	background-position: 0 -3292px;
+    height: 22px;
+    width: 26px;
+      line-height: 25px;
+   }
+   .sub>.cnt>.font-hover>.detail{
+  
+    font-size: 14px;
+    line-height: 25px;
+    white-space: pre-line;
+    font-weight:400;
+
+   }
+   .sub>.cnt>.font-hover>.font1{
+   	    margin: 18px 0 20px;
+   }
+   .sub>.cnt>.font-hover>.btn{
+   	position: absolute;
+
+    margin-top: 38px;
+    width: 158px;
+    line-height: 43px;
+    border: 1px solid #fff;
+     left:43.5%;
+    right:0;
+cursor:pointer;
+     border-radius: 1px; 
+     font-size: 16px; 
+    color: #fff;
+	   background-color:rgba(0,0,0,.5);
+	   	
+
+        text-decoration: none;
+   }
+   .sub>.cnt>.font-hover>.btn:hover{
+   		  background-color:rgba(0,0,0,1);
+   }
+   .sub>.cnt>.font-hover .sample{
+
+   	position: relative;
+    width: auto;
+    margin:auto;
+        display: inline-block;
+     text-align: left; 
+    white-space: nowrap;
+	top:40px;
+    margin-bottom: 20px;
+    background: #fff;
+    border: 1px solid #eaeaea;
+    line-height: 1;
+    overflow: hidden;
+}
+	.sample>.first {
+	
+    float: left;
+    vertical-align: top;
+    width: 200px;
+    text-align: center;
+    color: #333;
+     
+}	
+.sample>.first .tag {
+    display: inline-block;
+    padding: 0 10px;
+    margin-top: 32px;
+    line-height: 18px;
+    background: #333;
+    font-size: 13px;
+    color: #fff;
+}
+.sample>.first .title {
+    font-size: 20px;
+    margin: 20px 0 30px;
+    font-weight: bold;
+}
+.sub>.cnt .line {
+    margin: 30px auto 20px;
+    width: 50px;
+    height: 2px;
+    background: #fff;
+}
+.sample>.first .line {
+    display: block;
+    margin-top: 50px;
+   
+    border-bottom: 2px solid #333;
+}
+.sample>.first>.desc {
+    margin: 15px 5px 45px;
+    font-size: 13px;
+    line-height: 23px;
+    white-space: normal;
+        color: #666;
+}
+.sample>.first .time {
+    font-size: 14px;
+    margin-bottom: 20px;
+    margin-left: 15px;
+        color: #666;
+}
+.sample .sx{
+    left: 200px;
+}
+.sample .sx{
+	position: absolute;
+    top: 86px;
+    bottom: 54px;
+    border-right: 1px solid #eaeaea;
+    width: 0;
+
+}
+.sample .last {
+    display: inline-block;
+    vertical-align: top;
+    padding-right: 10px;
+    font-size: 0;
+
+}
+.sample .tx:first-child {
+    margin-left: 2px;
+     }
+.sample .tx {
+    float: left;
+    margin-top: 10px;
+    height: 270px;
+  
+
+}
+.sample .tx .tximg {
+
+    width: 180px;
+    height: 180px;
+ 
+}
+.sample .tx:first-child {
+    margin-right: -3px;
+
+}
+.sample .tx .txd{
+	font-size: 12px;
+    position: relative;
+    z-index: 20;
+}
+.sample .tx .tagList{
+	width: 180px;
+	margin-top: 12px;
+    margin-bottom: 18px;
+    overflow: hidden;
+    white-space: nowrap;
+
+}
+.sample .tx .tagList li {
+    margin-left:30px;
+    margin-top: -5px;
+    padding: 0 1px;
+    display: inline-block;
+    background: #f5f5f5;
+    font-size: 12px;
+    color: #333;
+    line-height: 22px;
+	
+}
+ul{
+	    list-style: none;
+}
+.sample .tx p{
+	margin-left: 55px;
+}
+.sample .tx .ax1{
+	
+	
+    vertical-align: middle;
+    height: 14px;
+    overflow: hidden;
+    background-image: url(img/ax.png);
+    background-position: 0 0;
+    background-repeat: no-repeat;
+}
+.sample .tx .ax1 span{
+	color: #000;
+
+	margin-left: 24px;
+}
+.tx:hover .doLike{
+	opacity: 1;
+}
+.doLike{
+	position: absolute;
+    background: #fff;
+    top: -10px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    padding-top: 12px;
+    opacity: 0;
+    color: #000;
+    transition: opacity .5s ease-in-out;
+}
+.sample .tx .doLike .hearIcon{
+	    width: 74px;
+    height: 25px;
+    margin: 0 auto;
+    overflow: hidden;
+    background: url(img/gg.png) center 9px no-repeat;
+    text-align: center;
+}
+.sample .tx .doLike .heart-big{
+    display: inline-block;
+    width: 24px;
+    height: 20px;
+    background-image: url(img/ax2.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+}
+.doLike:focus .heart-big{
+	 background-image: url(img/ax2.png);
+    background-repeat: no-repeat;
+
+		background-position: 0 -21px;
+}
+.sample .tx .doLike .personNum {
+    width: 74px;
+    height: 40px;
+    padding-top: 3px;
+    margin: 0 auto;
+    overflow: hidden;
+    line-height: 1;
+    font-size: 12px;
+}
+.sample .tx .doLike .personNum span{
+	   margin-left: 32px;
+	   line-height:25px;
+}
+.ft{
+    text-decoration: none;
+    vertical-align: middle;
+    margin-top: 50px;
+    color: #fff;
+
+}
+
+.ft .text{
+    color: #fff;
+	     float: left;
+    margin-left:43%;
+    line-height: 26px;
+    font-size: 20px;
+	
+}
+.ft .go{
+	position: absolute;
+	left:54%;
+	 height:26px;
+    width: 27px;
+	background-image: url(img/go.png);
+	background-position: 0 -2044px;
+       display: inline-block;
+    overflow: hidden;
+    vertical-align: top;
+    font-size: 12px;
+    word-spacing: normal;
+    letter-spacing: normal
+
+}
+.xz{
+	
+    margin-top: 0px;
+    text-align: center;
+    line-height: 1;
+ 
+}
+.xz .card{
+	vertical-align: top;
+    width: 310px;
+    height: 400px;
+    margin-right: 10px;
+    background: #fff;
+    display: inline-block;
+}
+.xz .card .imgWrapper{
+	width: 310px;
+    height: 250px;
+    overflow: hidden
+}
+.xz .card .name1{
+	font-size: 18px;
+    color: #3b3e40;
+    margin-top: 18px;
+    font-weight: bold;
+  
+}
+.xz .card .num{
+	    margin-top: 20px;
+    margin-bottom: 13px;
+    font-size: 14px;
+    color: #999;
+ font-weight: 600;
+}
+.xz .card .bt1{
+	position: absolute;
+	width: 160px;
+    height: 40px;
+    line-height: 40px;
+    color: #fff;
+    font-size: 18px;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+     border-radius: 2px;
+	text-decoration: none;
+	margin-left: -7%;
+}
+.ft1{
+	margin-top: 30px;
+}
+#dialog{
+
+    position: relative;
+    width: 1090px;
+    height: 350px;
+    text-align: center;
+    overflow: hidden;
+
+}
+#ui-id-1{
+	color:#999152;
+	background-image: url(img/jy.jpg);
+	text-align: center;
+	margin-left:4.5%;
+
+}
+#dialog .banner-img{
+    position: absolute;
+    top: 30px;
+    left: 50px;
+    z-index: -1;
+}
+#dialog .banner-cnt {
+    height: 350px;
+    padding-top: 42px;
+    background: rgba(51,51,51,.2);
+    color: #fff;
+    display: block;
+    }
+   .ns {
+    background-position: 0 -3292px;
+    height: 22px;
+    width: 26px;
+    background-image: url(img/冒号.png);
+}
+#dialog .banner-cnt .name {
+    margin: 18px 0 20px;
+    font-size: 24px;
+    text-shadow: 0 2px 4px rgba(0,0,0,.2);
+}
+#dialog .banner-cnt .desc {
+    margin-bottom: 30px;
+    line-height: 25px;
+    font-size: 14px;
+    white-space: pre-line;
+}
+#dialog .banner-cnt .area {
+    position: relative;
+}
+#dialog .banner-cnt .sugInput {
+    width: 520px;
+    height: 46px;
+    padding-left: 12px;
+    border: 1px solid #eaeaea;
+    vertical-align: top;
+    font-size: 13px;
+    color: #999!important;
+}
+.active{
+	display: block;
+
+}
+#dialog .banner-cnt .sugBtn {
+    width: 160px;
+    height: 46px;
+    border-radius: 0;
+    line-height: 46px;
+    font-size: 16px;
+    vertical-align: top;
+        color: #fff;
+    border: 1px solid #b4a078;
+    background-color: #b4a078;
+    text-align: center;
+    padding: 0;
+    margin-left: 43.5%;
+    margin-top: 20px;
+  cursor:pointer;
+}
+#dialog .banner-cnt .sugBtn:hover{
+	  background-color: #C0AE8A
+}
+#dialog .banner-cnt .area .phd {
+    display: none;
+    position: absolute;
+    left: 216px;
+    top: 13px;
+    width: 520px;
+    text-align: left;
+    font-size: 13px;
+    cursor: text;
+    color: #999!important;
+}
+#dialog .banner-cnt .tip {
+    position: relative;
+    margin-top: 20px;
+    display: inline-block;
+    font-size: 13px;
+}
+</style>
+</head>
+<body>
+<div id="all">
+ <div class="panel">
+	<header>
+		<span>好的生活，没那么贵</span>
+		<ul>
+			<li><a href="#" class="login1">登陆</a></li>
+			<li><a href="#" class="login1">&nbsp;注册&nbsp;</a></li>
+			<li>|<a href="#" >&nbsp;严选态度&nbsp;</a></li>
+			<li>|<a href="#">&nbsp;企业采购&nbsp;</a></li>
+			<li>|<a href="#">&nbsp;下载APP&nbsp;</a>
+				<div><img src="img/3e14428f49e6ec4b8ae2599f8566fd01.png"></div>
+			</li>
+		</ul>
+	</header>
+	<nav>
+		<div class="nav2">
+		<div id="logo"><img src="img/logo.jpg"></div>
+		<div id="dh"><ul>
+	<li class="dh"  id="dh0"  ><a href="first.html"  >首页</a></li>
+    <li class="dh"  id="dh1" ><a href="zhuanti.html" >居家</a>
+    <ul>
+		<li><a href="#"><p><img src="img/被枕.png"></p>
+			<p>被枕</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/床品件套.png"></p>
+			<p>床品件套</p>
+		</li>
+		<li><a href="#"><p><img src="img/床垫.png"></p>
+			<p>床垫</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/地垫.png"></p>
+			<p>地垫</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/家具.png"></p>
+			<p>家具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/舒坐.png"></p>
+			<p>舒坐</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/灯具.png"></p>
+			<p>灯具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/家饰.png"></p>
+			<p>家饰</p></a>
+		</li>
+	</ul></li>
+    <li class="dh" id="dh2" ><a href="#">餐厨</a>
+     <ul>
+		<li><a href="#"><p><img src="img/锅具.png"></p>
+			<p>锅具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/刀铲.png"></p>
+			<p>刀铲</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/功能厨具.png"></p>
+			<p>功能厨具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/餐具.png"></p>
+			<p>餐具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/杯壶.png"></p>
+			<p>杯壶</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/茶具.png"></p>
+			<p>茶具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/置物保鲜.png"></p>
+			<p>置物保鲜</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/清洁.png"></p>
+			<p>清洁</p></a>
+		</li>
+	</ul></li>
+    <li class="dh" id="dh3" ><a href="#">配件</a>
+     <ul>
+		<li><a href="#"><p><img src="img/功能箱包.png"></p>
+			<p>功能箱包</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/双肩包.png"></p>
+			<p>双肩包</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/单肩包.png"></p>
+			<p>单肩包</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/鞋.png"></p>
+			<p>鞋</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/靴.png"></p>
+			<p>靴</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/舒坐.png"></p>
+			<p>舒坐</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/拖鞋.png"></p>
+			<p>拖鞋</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/配饰.png"></p>
+			<p>配饰</p></a>
+		</li>
+	</ul></li>
+    <li class="dh" id="dh4" ><a href="#">服装</a>
+     <ul>
+		<li><a href="#"><p><img src="img/内裤.png"></p>
+			<p>内裤</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/内衣.png"></p>
+			<p>内衣</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/袜子.png"></p>
+			<p>袜子</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/家具.png"></p>
+			<p>家具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/T恤.png"></p>
+			<p>T恤</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/衬衫.png"></p>
+			<p>T恤</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/灯具.png"></p>
+			<p>灯具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/家饰.png"></p>
+			<p>外衣</p></a>
+		</li>
+	</ul></li>
+    <li class="dh" id="dh5" ><a href="#">洗护</a>
+     <ul>
+		<li><a href="#"><p><img src="img/护肤.png"></p>
+			<p>护肤</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/美妆.png"></p>
+			<p>美妆</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/香薰.png"></p>
+			<p>香薰</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/毛巾.png"></p>
+			<p>毛巾</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/镜梳.png"></p>
+			<p>镜梳</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/洗浴.png"></p>
+			<p>洗浴</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/用具.png"></p>
+			<p>用具</p></a>
+		</li>
+		
+	</ul></li>
+    <li class="dh"  id="dh6" ><a href="#">婴童</a> <ul>
+		<li><a href="#"><p><img src="img/服饰.png"></p>
+			<p>服饰</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/妈咪.png"></p>
+			<p>妈咪</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/寝居.png"></p>
+			<p>寝居</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/玩具.png"></p>
+			<p>玩具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/用品.png"></p>
+			<p>用品</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/喂养.png"></p>
+			<p>喂养</p></a>
+		</li>
+		
+	</ul></li>
+    <li class="dh" id="dh7" ><a href="#">杂货</a> <ul>
+		<li><a href="#"><p><img src="img/文具.png"></p>
+			<p>文具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/收纳.png"></p>
+			<p>收纳</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/旅行.png"></p>
+			<p>旅行</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/雨具.png"></p>
+			<p>雨具</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/口罩.png"></p>
+			<p>口罩</p></a>
+		</li>
+		
+	</ul></li>
+    <li class="dh" id="dh8" ><a href="#">饮食</a> <ul>
+		<li><a href="#"><p><img src="img/糕点.png"></p>
+			<p>糕点</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/小食.png"></p>
+			<p>小食</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/炒货.png"></p>
+			<p>炒货</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/冲饮.png"></p>
+			<p>冲饮</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/食材.png"></p>
+			<p>食材</p></a>
+		</li>
+	
+	</ul></li>
+    <li class="dh" id="dh9"><a href="#">其他</a> <ul>
+		<li><a href="#"><p><img src="img/日本.png"></p>
+			<p>日本</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/宠物.png"></p>
+			<p>宠物</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/夏日甜心.png"></p>
+			<p>床垫</p></a>
+		</li>
+		<li><a href="#"><p><img src="img/户外.png"></p>
+			<p>户外</p></a>
+		</li>
+		
+	</ul></li>
+    <li class="dh" id="dh10"><a href="#" >专题</a> </li>
+    <li class="dh" id="dh10"><a href="#">甄选</a> </li>
+</ul>
+	
+	<div id="bg5"></div>
+</div>
+</div>
+<section>
+			<div id="s" ><img src="img/bg1.jpg" id="img">
+		<img src="img/bg3.png" id="img2">
+		<a href="#md"><img src="img/bg2.png" id="img3"></a>
+		</div>
+	</section>
+	
+</nav>
+</div>	
+
+	<section class="panel">
+	
+		<div id="x">
+		
+			<div class="sub part1">
+			<div class="mb"  id="md">			</div>
+				
+				<div class="cnt"><div class="font-normal"><div class="bgts"></div>
+										<p class="name">建&nbsp;议&nbsp;征&nbsp;集&nbsp;</p>
+										<p class="line"></p>
+										<p class="desc" >告诉我们，你的好物标准</p></div>
+						<div class="font-hover">
+						<p><i class="bgts1 mh"></i></p>
+						<p class="name font1">这款抹茶烘焙合你心意吗？</p>
+						<p class="detail">品尝了这款甄选家专享试吃礼，我们一起聊一聊：它的味道怎样？你对它的口感、图案等还有什么建议？</p>
+						<button class="btn" id="btn" type="button">我要建议</button> 
+						</div>
+					</div>
+							<div id="dialog"   title="您的建议">
+									<img class="banner-img" src="img/jy.jpg">
+									<div class="banner-cnt">
+									<div class="active">
+									<p><i class="ns"></i></p>
+									<p class="name">这款抹茶烘焙合你心意吗？</p>
+									<p class="desc">品尝了这款甄选家专享试吃礼，我们一起聊一聊：它的味道怎样？你对它的口感、图案等还有什么建议？</p>
+									<div class="area">
+									<input class="sugInput" placeholder="例如材质、工艺、款式、制造商等方面内容，不少于10字。" id="sugInput" type="text"><div class="sugBtn">提交建议</div>
+									<label class="phd" for="sugInput">例如材质、工艺、款式、制造商等方面内容，不少于10字。</label>
+									</div>
+									<p class="tip">提供有效建议的用户均可获得¥10直减券，每人每期仅可获得一次</p>
+									</div>
+									</div>
+							</div>
+					
+					</div>
+			
+			<div class="sub part2">
+			<div class="mb"></div>
+			<div class="cnt">	<div class="font-normal"><div class="bgts"></div>
+										<p class="name" >样&nbsp;品&nbsp;甄&nbsp;选&nbsp;</p>
+										<p class="line"></p>
+										<p class="desc">请甄选，您的世间好物</p></div>
+					<div class="font-hover">
+						<div class="sample">
+							<div class="first">
+								<p class="tag">拖鞋篇</p>
+								<p class="title">男士人字拖选款</p>
+								<i class="line"></i>
+								<p class="desc">一双人字拖，陪我走天涯</p>
+								<p class="time">2016.11.12-2016.12.3</p>
+							</div>
+							<i class="sx"></i>
+							<div class="last">
+								<div class="tx">
+									<img src="img/tx1.jpg" class="tximg">
+								<div class="txd">
+									<ul class="tagList">
+										<li>橡胶带</li>
+										<li>绒面鞋底</li>
+									</ul>
+									<p class="ax1"><span>17人喜欢</span></p>
+									<div class="doLike">
+										
+										<p class="hearIcon"><i class="heart-big"></i></p>
+										<p class="personNum"><span>17</span></p>
+									
+										</div>
+								</div>
+								</div>
+								<div class="tx">
+									<img src="img/tx2.jpg"  class="tximg">
+								<div class="txd">
+									<ul class="tagList">
+										<li>橡胶带</li>
+										<li>EVA鞋底</li>
+									</ul>
+									<p class="ax1"><span>25人喜欢</span></p>
+									<div class="doLike">
+										
+										<p class="hearIcon"><i class="heart-big"></i></p>
+										<p class="personNum"><span>25</span></p>
+									
+										</div>
+								</div>
+								</div>
+								<div class="tx">
+									<img src="img/tx3.jpg"  class="tximg">
+									<div class="txd">
+									<ul class="tagList">
+										<li>皮带</li>
+										<li>EVA鞋底</li>
+									</ul>
+									<p class="ax1"><span>38人喜欢</span></p>
+									<div class="doLike">
+										
+										<p class="hearIcon"><i class="heart-big"></i></p>
+										<p class="personNum"><span>38</span></p>
+									
+										</div>
+								</div>
+								</div>
+								<div class="tx">
+									<img src="img/tx4.jpg"  class="tximg">
+									<div class="txd">
+									<ul class="tagList">
+										<li>麻带</li>
+										<li>EVA鞋底</li>
+									</ul>
+									<p class="ax1"><span>41人喜欢</span></p>
+									<div class="doLike">
+										
+										<p class="hearIcon"><i class="heart-big"></i></p>
+										<p class="personNum"><span>41</span></p>
+									
+										</div>
+								</div>
+								</div>
+							</div>
+
+						</div>
+						<footer class="ft">
+							<a href="#" class="more">
+								<span class="text">更多样品甄选</span>
+								<i class="go"></i>
+							</a>
+						</footer>
+					</div>
+			</div>
+			</div>
+			
+			<div class="sub part3">	<div class="mb"></div>
+				<div class="cnt"><div class="font-normal"><div class="bgts"></div>
+										<p class="name" >样&nbsp;品&nbsp;试&nbsp;用&nbsp;</p>
+										<p class="line"></p>
+										<p class="desc">我们在寻找，对生活有态度的你</p>
+										</div>
+					<div class="font-hover">
+						<div class="xz">
+							<div class="card">
+								<div class="imgWrapper">
+									<img src="img/ye.jpg">
+								</div>
+								<p class="name1">幼儿防走失背包</p>
+								<p class="num">28人已申请</p>
+								<a class="bt1" href="#">立即申请</a>
+								</div>
+							<div class="card">
+								<div class="imgWrapper">
+								<img src="img/ts.jpg">
+								</div>
+								<p class="name1">碳酸洗脸水</p>
+								<p class="num">84人已申请</p>
+								<a class="bt1" href="#">立即申请</a>
+								</div>
+							<div class="card">
+								<div class="imgWrapper">
+								<img src="img/jb.jpg">
+								</div>
+								<p class="name1">天赋异饼 抹茶煎饼</p>
+								<p class="num">666人已申请</p>
+								<a class="bt1" href="#">查看</a>
+								</div>
+						</div>
+						<footer class="ft ft1">
+							<a href="#" class="more">
+								<span class="text">更多样品甄选</span>
+								<i class="go" id="go"></i>
+							</a>
+						</footer>
+				</div>
+			</div>
+			</div>
+		
+		</div>	
+	</section>
+	</div>
+	<script>
+			$(function(){
+				$(window).scroll(function(){
+					var scrolltop=$(document).scrollTop();
+					var topheight=$("header").height()+$("nav #logo").height();
+					if(scrolltop>topheight){
+						$("#dh").addClass("fixed");
+							$("nav>.nav2>#dh>ul>li>ul").addClass("fixed2");
+						// $("#dh").css({
+						// 	// width:"100%",
+						// 	// margin:"0  0",
+						// 	position:"fixed",
+						// 	left:"0%",
+						// 	top:0,							
+						// 	zIndex:4
+
+						// }),
+						// // $("#img2").css("top","160px");
+						// $(".dh").css({
+						// 		padding:"0 3%",
+						// 		position:"relative",
+						// 		left:"6%",
+							
+
+						// })
+					}else{
+						$("#dh").removeClass("fixed");
+	$("nav>.nav2>#dh>ul>li>ul").removeClass("fixed2");
+					// 	$("#dh").css({
+					// 		position:"relative",
+
+					// 		width:"1280px",
+
+					// 		margin:"0 auto",
+					// 		height:"65px",	
+
+					// 	}),
+					// 	$(".dh").css({
+					// 		padding:"0 3%",
+					// 		position:"relative",
+					// 	left:"6%",
+					
+					// 	})
+					// 	$(#)
+
+					}
+				})
+			});
+		
+		setTimeout(xl,1000);
+		function xl(){
+			$("#img2").css("top","30px");
+			$("#img2").css("visibility","visible");
+			$("#img2").css("opacity","1");
+			$("#img2").css("transition",".4s");
+		};
+// 			$(function() {
+// 	$('.panel').css({'height': $(window).height()});
+// 	$.scrollify({
+// 		section: '.panel',
+// 		scrollbars: false
+// 	});
+// });
+	$(function(){
+				var ww=$(window).width();
+				var wh=$(window).height();
+				var divln=$(".panel").length;
+				$("#all").css({
+					width:ww,
+					height:wh*divln
+				})
+				$(".panel").css({
+					width:ww,
+					height:wh
+				});
+					$(window).bind("mousewheel",function(event){
+						ww=$(window).width();
+						wh=$(window).height();
+					console.log(event.originalEvent.wheelDelta);
+					var mouseDir=event.originalEvent.wheelDelta;
+					var nowtop=$("#all").offset().top;
+					if(nowtop%wh==0){
+						if(mouseDir>0&&nowtop<0){
+						$("#dh").removeClass("fixed");
+	$("nav>.nav2>#dh>ul>li>ul").removeClass("fixed2");
+							$("#all").animate({
+								top:"0px"
+							},500)
+						}else if(mouseDir<0&&nowtop>=-wh){
+								$("#dh").addClass("fixed");
+							$("nav>.nav2>#dh>ul>li>ul").addClass("fixed2");
+							$("#all").animate({
+								top:"-"+wh+"px"
+							},500)
+						}						
+					}
+				
+				})
+			});
+				
+
+
+
+
+			$(function(){
+				$("#dialog").dialog({
+					autoOpen:false,
+					width:1200,
+					show:{
+						effect:"bounce",
+						duration:1000
+					},
+					hide:{
+						
+						duration:1000
+					}, 
+					resizable: true,
+					modal: true,
+					
+				});
+				
+				$("#btn").click(function(){
+					$("#dialog").dialog('open');
+				})
+				
+			})
+		</script>
+</body>
+</html>
